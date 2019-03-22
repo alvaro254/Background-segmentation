@@ -124,7 +124,7 @@ int main (int argc, char * const argv[])
     
     		break;
 
-		//Subtract one frame to the previous one
+    	//Subtract one frame to the previous one
     	absdiff(inFrame2, inFrame, outFrame);
     	
     	//Generate a segmented mask
