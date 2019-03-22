@@ -122,7 +122,6 @@ int main (int argc, char * const argv[])
     	//Check if the frame has been read successfully
     	if (!wasOk)
     
-
     		break;
 
 		//Subtract one frame to the previous one
