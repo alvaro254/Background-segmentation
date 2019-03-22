@@ -44,7 +44,7 @@ int main (int argc, char * const argv[])
 	cmd.add(outname);
 	TCLAP::ValueArg<int> thres("t", "threshold", "Threshold value", false, 13, "float");
 	cmd.add(thres);
-	TCLAP::ValueArg<int> size("s", "radius", "Radiues value", false, 0, "int");
+	TCLAP::ValueArg<int> size("r", "radius", "Radius value", false, 0, "int");
 	cmd.add(size);
 
 	// Parse input arguments
