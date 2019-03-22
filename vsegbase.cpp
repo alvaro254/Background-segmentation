@@ -116,13 +116,14 @@ int main (int argc, char * const argv[])
   	{
     	frameNumber++;
         
-        //Read the next frame
+    	//Read the next frame
     	wasOk = input.read(inFrame2);
 
     	//Check if the frame has been read successfully
     	if (!wasOk)
+    
 
-			break;
+    		break;
 
 		//Subtract one frame to the previous one
     	absdiff(inFrame2, inFrame, outFrame);
@@ -140,27 +141,27 @@ int main (int argc, char * const argv[])
     	//opening + closing
     	Segmented_mask = opening + closing;
 		
-		//Split the segmented mask in 3 channels
-		split(Segmented_mask, splited);
-		//Channel0 AND channel1
-		bitwise_and(splited[0], splited[1], result);
-		//(Channel0 AND channel1) AND channel2
-		bitwise_and(result, splited[2], result);
+    	//Split the segmented mask in 3 channels
+    	split(Segmented_mask, splited);
+    	//Channel0 AND channel1
+    	bitwise_and(splited[0], splited[1], result);
+    	//(Channel0 AND channel1) AND channel2
+    	bitwise_and(result, splited[2], result);
 
-		//Multiply by 255 to make the image brighter
-		result *= 255;
+    	//Multiply by 255 to make the image brighter
+    	result *= 255;
 
-		channels.push_back(result);
-		channels.push_back(result);
-		channels.push_back(result);
+    	channels.push_back(result);
+    	channels.push_back(result);
+    	channels.push_back(result);
 
-		//Adds 2 channels to the segmented mask to have a 3 channels segmented mask
-		merge(channels, Segmented_mask3C);
+    	//Adds 2 channels to the segmented mask to have a 3 channels segmented mask
+    	merge(channels, Segmented_mask3C);
 
-		//Apply the segmeted mask of 3 channels to get the detected object
-		foreground = inFrame2&Segmented_mask3C;
+    	//Apply the segmeted mask of 3 channels to get the detected object
+    	foreground = inFrame2&Segmented_mask3C;
 
-		//Write the segmented mask to the video
+    	//Write the segmented mask to the video
     	output.write(Segmented_mask3C);
 
     	//Show the detection of the foreground
@@ -172,8 +173,8 @@ int main (int argc, char * const argv[])
     	wasOk=input.read(inFrame);
 
     	if (!wasOk)
-		
-			break;
+
+    		break;
 		
     	key = waitKey(20);
 
